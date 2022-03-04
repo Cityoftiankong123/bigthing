@@ -67,8 +67,10 @@ $(function () {
             method:'POST',
             data:$(this).serialize(),
             success:function(res){
+                console.log(res)
                 if(res.status !== 0){
-                    return layer.msg('登录失败');
+                    return layer.msg('登录失败,您输入的账户或密码错误');
+                    
                 }
                 layer.msg('登录成功')
                 localStorage.setItem('token',res.token)
